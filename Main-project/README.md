@@ -24,14 +24,14 @@ User Types
 Student Details
 
 - Attributes:
-	•	ID (5-digit unique identifier, with the first digit indicating the grade level)
+	•	Student ID 
 	•	Name
 	•	Age
 	•	Date of Birth (DOB)
 	•	Email
 - Database Entity:
 	•	Student
-	•	ID
+	•	Student ID
 	•	Name
 	•	Age
 	•	DOB
