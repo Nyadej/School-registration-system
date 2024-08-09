@@ -1,34 +1,37 @@
 package com.example.demo.Student;
 
 import java.time.LocalDate;
+import java.time.Period;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
-@Entity //to map this student to the database
-@Table(name = "students")
+@Entity // a table in the database
+@Table(name = "students") // name of the table in the database
 public class Student {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id // Marks a field as the primary key of the entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Specifies how the primary key (ID) should be generated - generate a unique value for the id field whenever a new student is added.  The GenerationType.IDENTITY means the database will handle generating the ID.
+    private Long id; // declares a private variable id of type Long to store the unique identifier for each student.
     private String name;
-    private Integer age;
     private LocalDate dob;
     private String email;
+    @Transient // field should not be saved to the database.
+    private Integer age; 
 
     public Student () {
 
     }
 
-    public Student(Long id, String name, String email, LocalDate dob, Integer age) {
+    public Student(Long id, String name, String email, LocalDate dob) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
     }
 
     public Long getId() {
@@ -63,8 +66,10 @@ public class Student {
         this.dob = dob;
     }
 
+    // method to calculate the age from the DOB
     public Integer getAge() {
-        return age;
+        // calculates the number of years between the student’s date of birth and the current date
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
