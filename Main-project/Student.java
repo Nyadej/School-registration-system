@@ -44,22 +44,27 @@ public class Student {
         String course = scanner.nextLine();
 
         switch (course) {
-            case "Medicine":
-                System.out.println("You have enrolled onto the Medicine course. Good luck!");
+            case "medicine":
+                studentFinance = studentFinance + accomodationCost;
+                System.out.println("You have enrolled onto the " +  course + "course. Good luck!");
                 break;
-            case "Computer Science":
-                System.out.println("You have enrolled onto the Computer science course. Good luck!");
+            case "computer science":
+                studentFinance = studentFinance + accomodationCost;
+                System.out.println("You have enrolled onto the " + course + " course. Good luck!");
                 break;
-            case "Law":
-                System.out.println("You have enrolled onto the Law course. Good luck!");
+            case "law":
+                studentFinance = studentFinance + accomodationCost;
+                System.out.println("You have enrolled onto the " + course + " course. Good luck!");
                 break;
-            case "Finance":
-                System.out.println("You have enrolled onto the Finance course. Good luck!");
+            case "finance":
+                studentFinance = studentFinance + accomodationCost;
+                System.out.println("You have enrolled onto the " +  course + " course. Good luck!");
                 break;
-            case "Engineering":
-                System.out.println("You have enrolled onto the Engineering course. Good luck!");
+            case "engineering":
+                studentFinance = studentFinance + accomodationCost;
+                System.out.println("You have enrolled onto the " + course + " course. Good luck!");
                 break;
-            case "Q":
+            case "q":
                 System.out.println("You have not enrolled on any courses.");
                 break;
             default: 
@@ -67,27 +72,11 @@ public class Student {
                 break;
         }   
 
-        // add a while loop until I get one of the above values
-        
-        if (course == "Q") {
-            System.out.println("You haven't enrolled in any courses.");
-            break;
-        } else { 
-            courses = courses + " "
-            studentFinance = studentFinance + accomodationCost; 
-        }
-
-    }
-
     // View balance
 
     // Pay tuition 
 
     // Show status
 
-    // Generate ID
-    private void setStudentID() {
-        // this.StudentID = studentID++; has been replaced with this.studentID = idCounter++; to properly assign a unique student ID.
-        this.studentID = idCounter++; // Increment the static counter and assign to studentID
     }
 }
