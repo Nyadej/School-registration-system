@@ -1,8 +1,8 @@
 package com.example.demo.Student;
 
 import java.time.LocalDate;
-import java.time.Period;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,15 +17,31 @@ public class Student {
     @Id // Marks a field as the primary key of the entity
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Specifies how the primary key (ID) should be generated - generate a unique value for the id field whenever a new student is added.  The GenerationType.IDENTITY means the database will handle generating the ID.
     private Long id; // declares a private variable id of type Long to store the unique identifier for each student.
+    
+    @Column(name = "first_name", nullable = false)
     private String firstName;
+
+    @Column(name = "last_name", nullable = false)
     private String lastName;
+
+    @Column(name = "year_group", nullable =)
     private Integer yearGroup;
+
+    @Column(name = "course", nullable = true)
     private String course;
+
+    @Column(name = "student_loan", nullable = true)
     private Integer studentLoan;
+
+    @Column(name = "total_payments", nullable = true)
     private Integer totalPayments;
+
+    @Column(name = "loan_balance", nullable = true)
     private Integer loanBalance;
-    @Transient // field should not be saved to the database.
+
+    /*@Transient // field should not be saved to the database.
     private Integer age; 
+    */
 
     public Student () {
 
