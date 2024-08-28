@@ -32,6 +32,10 @@ public class Student {
 
     }
 
+    public Integer getStudentID() {
+        return studentID;
+    }
+
      // Generate ID
      private void setStudentID() {
         // this.StudentID = studentID++; has been replaced with this.studentID = idCounter++; to properly assign a unique student ID.
