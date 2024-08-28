@@ -16,4 +16,11 @@ public class StudentRegister {
         return studentMap.get(studentID);
     }
 
+    public void printAllStudents() {
+        System.out.println("Student Register List:");
+        for (Student student : studentMap.values()) {
+            System.out.println("ID: " + student.getStudentID() + ", Name: " + student.getFullName());
+        }
+    }
+
 }
