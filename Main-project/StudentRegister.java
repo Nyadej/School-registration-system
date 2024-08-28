@@ -22,5 +22,4 @@ public class StudentRegister {
             System.out.println("ID: " + student.getStudentID() + ", Name: " + student.getFullName());
         }
     }
-
 }
