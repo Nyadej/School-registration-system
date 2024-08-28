@@ -32,6 +32,10 @@ public class Student {
 
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
     public Integer getStudentID() {
         return studentID;
     }
@@ -104,6 +108,4 @@ public class Student {
         System.out.println("Your balance is: £" + loanBalance + '\n' + "A receipt has been sent to your email! 🧾"); // **Display current loan balance
     }
 } 
-
-    // Show status
 
