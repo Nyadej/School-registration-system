@@ -117,6 +117,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student[" + "id=" + id + ", name=' " + fullName + '\'' + ", course=' " + course + '\'' + ", year=" + yearGroup + ", student loan=" + studentLoan + ", total payments=" + totalPayments + ", loan balance=" + loanBalance + '}';
+        return "Student[" + "id=" + id + ", name=' " + fullName + '\'' + ", course=' " + course + '\'' + ", year=" + yearGroup + '\'' + ", student loan=" + studentLoan + '\'' + ", total payments=" + totalPayments + '\'' + ", loan balance=" + loanBalance'}';
     }
 }
