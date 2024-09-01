@@ -36,7 +36,6 @@ public class Teacher extends School {
     }
 
     // Inform of summary
-    @Override
     public void displayTeacherSummary() {
         System.out.println("-----------------------Teacher summary-------------------------------")
         System.out.println("Name: " + title + " " + firstName + " " + lastName);
