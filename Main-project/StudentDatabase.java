@@ -1,54 +1,33 @@
 import java.util.Scanner;
 
-public class StudentDatabase {
+public class StudentMain {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
-        HashMap<>
+        StudentRegister studentRegister = new StudentRegister();
 
-        System.ount.print("Are you a Teacher or Student? (Enter 'T' for Teacher, 'S' for student): ");
+        // Prompt the user for the number[n] of students
+        System.out.print("How many students will be registering today?: ");
 
-        Char role = scanner.nextLine().toUpperCase();
+        // Create an array of students based on the input number
+        int nStudents = scanner.nextInt();
+        scanner.nextLine(); // Consume the leftover newline after nextInt()
 
-        switch (role) {
-            case "T":
-                System.out.print("How many teachers will be registering today?: ");
-                int nTeachers = scanner.nextInt();
-                scanner.nextLine();
+        Student[] studentsList = new Student[nStudents];
 
-                HashMap<Integer, String>
+        // Register each student and add them to the register
+        for (int n = 0; n < nStudents; n++) {
+            // Initialize each student object, enroll them, and process payments
+            studentsList[n] = new Student(scanner); // **By passing the same Scanner object around, you avoid creating multiple instances of Scanner, which is more efficient and avoids potential resource leaks.
+            studentsList[n].enroll(scanner);
+            studentsList[n].makePayment(scanner);
 
-                break;
-
-            case "S":
-                System.out.print("How many students will be registering today?: ");
-                Student student = new Student(scanner);
-
-
-            default:
-                System.out.println("Please select a vaild option. Valid options are T or S. Restart the programme.");
+            studentRegister.addStudent(studentsList[n]); // add each student and their ID to the register
 
         }
+
+        studentRegister.printAllStudents();
+
+        scanner.close();
     }
 }
-
-            // Prompt the user for the number of students
-            System.out.print("How many students will be registering today?: ");
-            Scanner scanner = new Scanner(System.in);
-    
-            // Create an array of students based on the input number
-            int nStudents = scanner.nextInt();
-            scanner.nextLine(); // Consume the leftover newline after nextInt()
-            Student[] studentsList = new Student[nStudents];
-    
-            for (int n = 0; n < nStudents; n++) {
-                // Initialize each student object, enroll them, and process payments
-                studentsList[n] = new Student(scanner); // **By passing the same Scanner object around, you avoid creating multiple instances of Scanner, which is more efficient and avoids potential resource leaks.
-                studentsList[n].enroll(scanner);
-                studentsList[n].makePayment(scanner);
-            }
-            
-            scanner.close();
-        }
-    }
