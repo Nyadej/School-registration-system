@@ -9,6 +9,8 @@ public abstract class Register {
 
     // constructor
     public Register(Scanner scanner) { // dependency injection, scanner is passed in from the StudentDatabase
+        scanner.nextLine(); // Flush out any potential leftover input buffer, that was preventing first name and last name prompt from being printed out separately
+
         System.out.println("Enter your first name: ");
         this.firstName = scanner.nextLine();
 
@@ -23,10 +25,11 @@ public abstract class Register {
                 "5th year" + '\n' +
                 "6th year" + '\n');
         this.yearGroup = scanner.nextInt();
+
         scanner.nextLine(); // Consume the leftover newline character after nextInt - [issue: first name and last name prompts still appear at the same time]
 
         System.out.println("----------Summary----------");
-        System.out.println(firstName + " " + lastName + " " + '\n' +
+        System.out.println(firstName + " " + lastName + '\n' +
                 yearGroup + getSuffix(yearGroup) + " year" + '\n' +
                 "ID: " + id + '\n' +
                 "You have successfully enrolled onto the, welcome \uD83D\uDC4B");
@@ -49,7 +52,7 @@ public abstract class Register {
         return firstName;
     }
 
-    public void setFirstName() {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -57,7 +60,7 @@ public abstract class Register {
         return lastName;
     }
 
-    public void setLastName() {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -65,7 +68,7 @@ public abstract class Register {
         return firstName + " " + lastName;
     }
 
-    public void setFullName() {
+    public void setFullName(String fullName) {
         this.lastName = lastName;
     }
 
