@@ -4,7 +4,7 @@ public abstract class Register {
     public String firstName;
     public String lastName;
     public int yearGroup;
-    public int id;
+    public int id; // unique for each person
     public String course;
 
     // constructor
@@ -28,12 +28,6 @@ public abstract class Register {
 
         scanner.nextLine(); // Consume the leftover newline character after nextInt - [issue: first name and last name prompts still appear at the same time]
 
-        System.out.println("----------Summary----------");
-        System.out.println(firstName + " " + lastName + '\n' +
-                yearGroup + getSuffix(yearGroup) + " year" + '\n' +
-                "ID: " + id + '\n' +
-                "You have successfully enrolled onto the, welcome \uD83D\uDC4B");
-        System.out.println("---------------------------");
     }
 
     // to help set suffix of year group
@@ -45,6 +39,10 @@ public abstract class Register {
             default -> "th";
         };
     }
+
+    public abstract int getId();
+
+    public abstract void displaySummary();
 
     public abstract void enroll(Scanner scanner);
 
@@ -72,8 +70,6 @@ public abstract class Register {
         this.lastName = lastName;
     }
 
-    public abstract int getId();
-
-    public abstract void displaySummary();
+    public abstract void displayInformation();
 
 }
