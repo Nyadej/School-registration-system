@@ -6,14 +6,24 @@ public class Student extends Register {
 
     public Student(Scanner scanner) {
         super(scanner); // call the constructor of the superclass (register) with the scanner
-        // generate unique student ID
-        this.id = idCounter++; // increment ID for each new student
+        this.id = idCounter++;// increment ID for each new student
+        displayInformation();
         enroll(scanner);
     }
 
     @Override
     public int getId() {
         return id;
+    }
+
+    @Override
+    public void displayInformation() {
+        System.out.println("----------Summary----------");
+        System.out.println(firstName + " " + lastName + '\n' +
+                yearGroup + getSuffix(yearGroup) + " year" + '\n' +
+                "ID: " + id + '\n' +
+                "Welcome to the CBF school registration system \uD83D\uDC4B");
+        System.out.println("---------------------------");
     }
 
     @Override
@@ -66,6 +76,7 @@ public class Student extends Register {
         makePayment(scanner);
     }
 
+    // make tuition payment
     public void makePayment(Scanner scanner) {
         System.out.print("Would you like to make a payment today? (Y/N): ");
         String response = scanner.nextLine().toLowerCase();
@@ -81,6 +92,7 @@ public class Student extends Register {
         }
     }
 
+    // view tuition balance
     public void checkBalance() {
         System.out.println("Your balance is: £" + loanBalance + '\n' + "A receipt has been sent to your email! 🧾"); // **Display current loan balance
     }
