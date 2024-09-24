@@ -57,8 +57,8 @@ public class Student extends Register {
                 return; // Exit the method here if an invalid course is selected
         }
 
-        System.out.println("You have enrolled in the course: " + course +
-                "good luck & happy studying \uD83D\uDCDA\uD83E\uDD1E\uD83C\uDFFE");
+        System.out.println("You have enrolled in the course: " + course + ". " +
+                "Good luck & happy studying \uD83D\uDCDA\uD83E\uDD1E\uD83C\uDFFE");
     }
 
     public void displaySummary() {
@@ -86,15 +86,17 @@ public class Student extends Register {
             int payment = scanner.nextInt(); // Get the payment amount from the user
             loanBalance = loanBalance - payment;
             System.out.println("Thank you for your payment of £" + payment + " 👍");
-            checkBalance(); // Show the updated balance
-        } else {
+            updatedBalance(); // Show the updated balance
+        }
+
+        else if (response.equals("n")) {
             System.out.println("No payment made today " + firstName + ". 🙂");
         }
     }
 
     // view tuition balance
-    public void checkBalance() {
-        System.out.println("Your balance is: £" + loanBalance + '\n' + "A receipt has been sent to your email! 🧾"); // **Display current loan balance
+    public void updatedBalance() {
+        System.out.println("Your balance is now: £" + loanBalance + '\n' + "A receipt has been sent to your email! 🧾"); // **Display current loan balance
     }
 
 }
