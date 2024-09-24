@@ -1,77 +1,61 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
-public class Teacher extends Register {
-    private static int idCounter = 2001;
-    private String title;
+public class StudentDatabase {
 
-    public Teacher(Scanner scanner) {
-        super(scanner); // call the parent constructor
-        this.id = idCounter++;// increment ID for each new teacher
-        displayInformation();
-        enroll(scanner);
-    }
+    public static void main(String[] args) {
 
-    @Override
-    public int getId() {
-        return id;
-    }
+        Scanner scanner = new Scanner(System.in);
 
-    @Override
-    public void displayInformation() {
-        System.out.println("----------Summary----------");
-        System.out.println(firstName + " " + lastName + '\n' +
-                yearGroup + getSuffix(yearGroup) + " year" + '\n' +
-                "ID: " + id + '\n' +
-                "Welcome to the CBF school registration system \uD83D\uDC4B");
-        System.out.println("---------------------------");
-    }
+        // hashmaps to store students and teachers full name + ID
+        HashMap<Integer, Register> studentMap = new HashMap<>();
+        HashMap<Integer, Register> teacherMap = new HashMap<>();
 
-    @Override
-    public void enroll(Scanner scanner) {
+        System.out.print("Are you a Teacher or Student? (Enter 'T' for Teacher, or 'S' for Student): ");
+        String role = scanner.nextLine().toUpperCase();
 
-        System.out.println("What course would you like to register for? (Q to quit): ");
-        //String course = scanner.nextLine().toLowerCase();
-        this.course = scanner.nextLine();
+        switch (role) {
+            case "S":
+                System.out.print("How many students will be registering?: ");
+                int nStudents = scanner.nextInt();
 
-        switch (course) {
-            case "medicine":
-                course = "medicine \uD83E\uDE7A";
+                for (int i = 1; i <= nStudents; i++) {
+                    System.out.println("Registering student " + i);
+                    Student student = new Student(scanner);
+                    student.displaySummary();
+                    studentMap.put(student.getId(), student);
+                }
+
+                // Print out registered students
+                System.out.println("\n--- Registered Students ---");
+                for (Register student : studentMap.values()) {
+                    System.out.println(student.getFullName() + " (ID: " + student.getId() + ")");
+                }
                 break;
-            case "computer science":
-                course = "computer science \uD83D\uDCBB";
+
+            case "T":
+                System.out.print("How many teachers will be registering?: ");
+                int nTeachers = scanner.nextInt();
+
+                scanner.nextLine();
+                for (int i = 1; i <= nTeachers; i++) {
+                    System.out.println("Registering Teachers " + i);
+                    Teacher teacher = new Teacher(scanner);
+                    teacherMap.put(teacher.getId(), teacher);
+                }
+
+                // Print out teachers
+                System.out.println("\n--- Registered Teachers ---");
+                for (Register teacher : teacherMap.values()) {
+                    System.out.println(teacher.getFullName() + " (ID: " + teacher.getId() + ")");
+                }
                 break;
-            case "law":
-                course = "law \uD83D\uDCDA";
-                break;
-            case "finance":
-                course = "finance \uD83C\uDFE6";
-                break;
-            case "engineering":
-                course = "engineering \uD83C\uDFD7\uFE0F";
-                break;
-            case "q":
-                System.out.println("You have left the programme.");
-                return; // Exit the method here if the user chooses to quit
+
             default:
-                System.out.println("You haven't selected a course.");
-                return; // Exit the method here if an invalid course is selected
+                System.out.println("Invalid selection.");
+
         }
 
-        System.out.println("You will be teaching the " + course +
-                "good luck & happy teaching \uD83D\uDCC7");
+        scanner.close();
     }
-
-    private void setTitle(Scanner scanner) {
-        System.out.println("Please select your title (Mr, Ms, Miss): ");
-        this.title = scanner.nextLine();
-    }
-
-    @Override
-    public void displaySummary() {
-        System.out.println("-----------------------Teacher summary-------------------------------");
-        System.out.println("Name: " + title + " " + firstName + " " + lastName);
-        System.out.println("Teacher ID: " + id);
-        System.out.println("Course Teaching: " + course);
-    }
-
 }
