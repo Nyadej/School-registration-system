@@ -1,6 +1,6 @@
 # **Student Registration System**
 
-![StudentRegImage.png](../StudentRegImage.png)
+![](./StudentRegImage.jpeg)
 
 _The objective of this project is to create a simple Student and Teacher Registration System. Users can either register as a student or a teacher. Once registered, they will be assigned a unique ID, enroll in a course, and, if applicable (for students), manage their tuition payments._
 
