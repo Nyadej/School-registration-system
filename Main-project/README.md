@@ -1,8 +1,10 @@
-Student Registration System
+# **Student Registration System**
 
-The objective of this project is to create a simple Student and Teacher Registration System. Users can either register as a student or a teacher. Once registered, they will be assigned a unique ID, enroll in a course, and, if applicable (for students), manage their tuition payments.
+![StudentRegImage.png](../StudentRegImage.png)
 
-Key Features:
+_The objective of this project is to create a simple Student and Teacher Registration System. Users can either register as a student or a teacher. Once registered, they will be assigned a unique ID, enroll in a course, and, if applicable (for students), manage their tuition payments._
+
+**Key Features:**
 
 	•	Student Registration: Collects first name, last name, year group, and generates a unique student ID.
 	•	Teacher Registration: Collects first name, last name, title, and generates a unique teacher ID.
@@ -10,7 +12,7 @@ Key Features:
 	•	Student Payment Management: Students can view and pay off their tuition loan balances.
 	•	Data Management: All registered users (teachers and students) are stored in separate HashMaps.
 
-Example commands:
+****Example commands:****
 
 	•	Student Registration:
 	•	“Enter your first name: ___”
@@ -18,6 +20,7 @@ Example commands:
 	•	“Enter your year group: ___”
 	•	“What course would you like to register for?”
 	•	“Would you like to make a payment today?”
+-----------------
 	•	Teacher Registration:
 	•	“Enter your first name: ___”
 	•	“Enter your last name: ___”
@@ -26,7 +29,7 @@ Example commands:
 
 At the end of each registration process, a summary of the registered users (students or teachers) will be printed.
 
-Key Classes and Components
+**Key Classes and Components**
 
 1. Register Class (Abstract)
 
@@ -50,7 +53,7 @@ Key Classes and Components
    •	Handles user input to determine whether they are registering as a student or a teacher.
    •	Manages the storage and retrieval of registered users in HashMaps.
 
-Java Programming Principles Applied
+**Java Programming Principles Applied**
 
 	Object-Oriented Programming (OOP):
 	•	Inheritance: Both Student and Teacher classes extend the abstract class Register, inheriting common properties and methods.
