@@ -18,11 +18,8 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Specifies how the primary key (ID) should be generated - generate a unique value for the id field whenever a new student is added.  The GenerationType.IDENTITY means the database will handle generating the ID.
     private Long id; // declares a private variable id of type Long to store the unique identifier for each student.
     
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
     @Column(name = "year_group", nullable =)
     private Integer yearGroup;
@@ -39,18 +36,22 @@ public class Student {
     @Column(name = "loan_balance", nullable = true)
     private Integer loanBalance;
 
-    /*@Transient // field should not be saved to the database.
-    private Integer age; 
-    */
-
     public Student () {
 
     }
 
-    public Student(Long id, String name, String email, LocalDate dob) {
+    public Student(Long id, String fullName, Integer yearGroup, String course, Integer studentLoan, Integer totalPayments, Integer loanBalance) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.fullName = fullName;
+        this.yearGroup = yearGroup;
+        this.course = course;
+        this.studentLoan = studentLoan;
+        this.totalPayments = totalPayments;
+        this.loanBalance = loanBalance;
+    }
+
+    public Student(String fullName, Integer yearGroup, String course, Integer studentLoan, Integer totalPayments, Integer loanBalance) {
+        this.fullName = fullName;
         this.yearGroup = yearGroup;
         this.course = course;
         this.studentLoan = studentLoan;
@@ -66,20 +67,12 @@ public class Student {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLast(String lastName) {
-        this.lastName = lastName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public Integer getYearGroup() {
@@ -122,20 +115,8 @@ public class Student {
         this.loanBalance = loanBalance;
     }
 
-    /* method to calculate the age from the DOB
-    public Integer getAge() {
-        calculates the number of years between the student’s date of birth and the current date
-        return Period.between(this.dob, LocalDate.now()).getYears();
-    }
-    
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-    */
-
     @Override
     public String toString() {
-        return "Student[" + "id=" + id + ", name=' " + firstName + lastName + '\'' + ", course=' " + course + '\'' + ", year=" + yearGroup + ", student loan=" + studentLoan + ", total payments=" + totalPayments + ", loan balance=" + loanBalance + '}'; 
+        return "Student[" + "id=" + id + ", name=' " + fullName + '\'' + ", course=' " + course + '\'' + ", year=" + yearGroup + '\'' + ", student loan=" + studentLoan + '\'' + ", total payments=" + totalPayments + '\'' + ", loan balance=" + loanBalance'}';
     }
 }
