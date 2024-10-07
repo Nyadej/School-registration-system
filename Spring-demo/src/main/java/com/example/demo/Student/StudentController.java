@@ -1,24 +1,32 @@
 package com.example.demo.Student;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController // Indicates that this class is a Spring REST controller, meaning it handles HTTP requests.
-@RequestMapping(path = "api/student") // (Sets the base URL path for this controller) Instead of going to local host 8080, we now want local host 8080>API>student
+@RequestMapping(path = "api/v1/studentregistration") // (Sets the base URL path for this controller) Instead of going to local host 8080, we now want local host 8080>API>student
 public class StudentController {
 
-    private final StudentService studentService; // This is a reference to the service layer that handles the business logic
+    @GetMapping
+    public List<Student> hello() {
+        return List.of(
+                new Student(
+                        1L,
+                        "Naomi",
+                        "Adejumo",
+                        6,
+                        "Medicine",
+                        54000,
+                        1234,
+                        52766
+                )
+        );
+
+    /*private final StudentService studentService; // This is a reference to the service layer that handles the business logic
 
     @Autowired
     // dependency injection - Saying that the above StudentService studentService should be autowired/instansiated by Spring and injected into the below constructor when the application starts
@@ -59,6 +67,7 @@ public class StudentController {
     @DeleteMapping(path = "/{id}") // maps HTTP DELETE requests to this method. The path = "{studentId}" part indicates that this method will respond to a URL that contains a student ID (like /api/v1/student/1).
     public void deleteStudent(@PathVariable("id") long id) { // method deletes a student based on their ID. The @PathVariable annotation tells Spring to take the studentId from the URL and pass it to this method.
         studentService.deleteStudent(id); // calls the deleteStudent() method from StudentService to delete the student from the database.
+    }*/
     }
 }
 
